@@ -13,7 +13,7 @@
 		84E3231C27806A7600CA029D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E3231A27806A7600CA029D /* Main.storyboard */; };
 		84E3231F27806A7600CA029D /* Chess_Timer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84E3231D27806A7600CA029D /* Chess_Timer.xcdatamodeld */; };
 		84E3232127806A7800CA029D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84E3232027806A7800CA029D /* Assets.xcassets */; };
-		84E3232427806A7800CA029D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E3232227806A7800CA029D /* LaunchScreen.storyboard */; };
+		84E3232C278093EB00CA029D /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E3232B278093EB00CA029D /* TimerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,8 +24,8 @@
 		84E3231B27806A7600CA029D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84E3231E27806A7600CA029D /* Chess_Timer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Chess_Timer.xcdatamodel; sourceTree = "<group>"; };
 		84E3232027806A7800CA029D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		84E3232327806A7800CA029D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84E3232527806A7800CA029D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84E3232B278093EB00CA029D /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +60,10 @@
 			children = (
 				84E3231427806A7600CA029D /* AppDelegate.swift */,
 				84E3231627806A7600CA029D /* SceneDelegate.swift */,
+				84E3232B278093EB00CA029D /* TimerViewController.swift */,
 				84E3231827806A7600CA029D /* ViewController.swift */,
 				84E3231A27806A7600CA029D /* Main.storyboard */,
 				84E3232027806A7800CA029D /* Assets.xcassets */,
-				84E3232227806A7800CA029D /* LaunchScreen.storyboard */,
 				84E3232527806A7800CA029D /* Info.plist */,
 				84E3231D27806A7600CA029D /* Chess_Timer.xcdatamodeld */,
 			);
@@ -128,7 +128,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84E3232427806A7800CA029D /* LaunchScreen.storyboard in Resources */,
 				84E3232127806A7800CA029D /* Assets.xcassets in Resources */,
 				84E3231C27806A7600CA029D /* Main.storyboard in Resources */,
 			);
@@ -141,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84E3232C278093EB00CA029D /* TimerViewController.swift in Sources */,
 				84E3231927806A7600CA029D /* ViewController.swift in Sources */,
 				84E3231527806A7600CA029D /* AppDelegate.swift in Sources */,
 				84E3231F27806A7600CA029D /* Chess_Timer.xcdatamodeld in Sources */,
@@ -157,14 +157,6 @@
 				84E3231B27806A7600CA029D /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		84E3232227806A7800CA029D /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				84E3232327806A7800CA029D /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -299,8 +291,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -327,8 +321,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
