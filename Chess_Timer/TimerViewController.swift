@@ -50,7 +50,7 @@ class TimerViewController: UIViewController {
     @IBAction func BtnBlack(_ sender: Any) {
         
         sayacblck += 1
-        if sayacblck == 1 {
+        if sayacblck == 1 && sayacwhite != 0{
             self.sayacwhite = 0
             self.timerblack.invalidate()
                 if pauseBtn.currentImage == UIImage(systemName: "play.fill") {
