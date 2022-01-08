@@ -33,6 +33,8 @@ class TimerViewController: UIViewController {
         sayacblck = 0
         sayacwhite = 0
         BtnBlack.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+        btnWhite.titleLabel?.font = UIFont.boldSystemFont(ofSize: 40)
+        BtnBlack.titleLabel?.font = UIFont.boldSystemFont(ofSize: 40)
         pauseBtn.setImage(UIImage(systemName: "pause.fill"), for: UIControl.State.normal)
         if control == 1 {
             timerwhite = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TimerWhite), userInfo: nil, repeats: true)
@@ -47,41 +49,33 @@ class TimerViewController: UIViewController {
    
     @IBAction func BtnBlack(_ sender: Any) {
         
-        
-        
-        
-            sayacblck += 1
-            if sayacblck == 1  {
-                    if pauseBtn.currentImage == UIImage(systemName: "play.fill") {
-                        self.pauseBtn.setImage(UIImage(systemName: "pause.fill"), for: UIControl.State.normal)
-                    }
-                    self.control = 0
-                    self.timerwhite.invalidate()
-                    self.timerblack = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TimerBlack), userInfo: nil, repeats: true)
-                    self.sayacwhite = 0
-                
+        sayacblck += 1
+        if sayacblck == 1 {
+            self.sayacwhite = 0
+            self.timerblack.invalidate()
+                if pauseBtn.currentImage == UIImage(systemName: "play.fill") {
+                    self.pauseBtn.setImage(UIImage(systemName: "pause.fill"), for: UIControl.State.normal)
                 }
+                self.control = 1
+                self.timerwhite = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TimerWhite), userInfo: nil, repeats: true)
+        }
        
  
     }
     
     @IBAction func btnWhite(_ sender: Any) {
-       
-       
             sayacwhite += 1
-            if sayacwhite == 1  && whitesn == 0 && whitedk == 0{
+            if sayacwhite == 1{
+                self.sayacblck = 0
+                self.timerwhite.invalidate()
                 if pauseBtn.currentImage == UIImage(systemName: "play.fill") {
                     pauseBtn.setImage(UIImage(systemName: "pause.fill"), for: UIControl.State.normal)
                 }
-                control = 1
-                timerblack.invalidate()
-                timerwhite = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TimerWhite), userInfo: nil, repeats: true)
-                sayacblck = 0
+                self.control = 0
+                self.timerblack = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TimerBlack), userInfo: nil, repeats: true)
+                
             }
-    
-        
-       
-        
+
     }
     
     @objc func TimerBlack() {
@@ -94,12 +88,15 @@ class TimerViewController: UIViewController {
             if(blcksn == 0) {
                 blcksn = 59
                 blckdk -= 1
-                BtnBlack.titleLabel?.text = "\(blckdk):" + String(format: "%02d", blcksn)
+                BtnBlack.setTitle("\(blckdk):" + String(format: "%02d", blcksn), for: .normal)
+               // BtnBlack.setTitleColor(UIColor.white, for: .normal)
+               // BtnBlack.titleLabel?.font = UIFont.boldSystemFont(ofSize: 40)
                     
             }
             else {
                 blcksn -= 1
-                BtnBlack.titleLabel?.text = "\(blckdk):" + String(format: "%02d", blcksn)
+                BtnBlack.setTitle("\(blckdk):" + String(format: "%02d", blcksn), for: .normal)
+               // BtnBlack.setTitleColor(UIColor.white, for: .normal)
                 if blckdk == 0 && blcksn == 0 {
                     self.Alert(title: "OYUN BİTTİ", message: "KAZANAN BEYAZ TARAF")
                     timerblack.invalidate()
@@ -120,12 +117,14 @@ class TimerViewController: UIViewController {
             if(whitesn == 0) {
                 whitesn = 59
                 whitedk -= 1
-                btnWhite.titleLabel?.text = "\(whitedk):" + String(format: "%02d", whitesn)
+                btnWhite.setTitle("\(whitedk):" + String(format: "%02d", whitesn), for: .normal)
+                //btnWhite.titleLabel?.font = UIFont.boldSystemFont(ofSize: 40)
                 
             }
             else {
                 whitesn -= 1
-                btnWhite.titleLabel?.text = "\(whitedk):" + String(format: "%02d", whitesn)
+                btnWhite.setTitle("\(whitedk):" + String(format: "%02d", whitesn), for: .normal)
+                
                 if whitedk == 0 && whitesn == 0 {
                     self.Alert(title: "OYUN BİTTİ", message: "KAZANAN SİYAH TARAF")
                     timerwhite.invalidate()
@@ -163,8 +162,10 @@ class TimerViewController: UIViewController {
         blcksn = 0
         whitedk = 30
         blckdk = 30
-        btnWhite.titleLabel?.text = "\(whitedk):" + String(format: "%02d", whitesn)
-        BtnBlack.titleLabel?.text = "\(blckdk):" + String(format: "%02d", blcksn)
+        btnWhite.setTitle("\(whitedk):" + String(format: "%02d", whitesn), for: .normal)
+       // btnWhite.titleLabel?.font = UIFont.boldSystemFont(ofSize: 40)
+        BtnBlack.setTitle("\(blckdk):" + String(format: "%02d", blcksn), for: .normal)
+     //   BtnBlack.titleLabel?.font = UIFont.boldSystemFont(ofSize: 40)
     }
     
     func Alert(title: String,message: String) {
